@@ -45,6 +45,7 @@ func yourHandlerTs(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	fmt.Println("Ready to serve at :8081")
 	r := mux.NewRouter()
 	r.Path("/resumen/{date}").Queries("dias", "{dias}").HandlerFunc(yourHandlerTs).Name("YourHandler").Methods("GET")
 	log.Fatal(http.ListenAndServe(":8081", r))
